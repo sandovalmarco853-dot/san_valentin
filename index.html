@@ -186,18 +186,23 @@
     }
 
     function createHearts() {
-      for (let i = 0; i < 30; i++) {
-        const heart = document.createElement('div');
-        heart.classList.add('heart');
-        heart.innerText = '💖';
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.bottom = '-20px';
-        heart.style.animationDelay = Math.random() * 2 + 's';
-        document.body.appendChild(heart);
+  const emojis = ['💖', '🐨', '🐘'];
 
-        setTimeout(() => heart.remove(), 4000);
-      }
-    }
+  for (let i = 0; i < 30; i++) {
+    const item = document.createElement('div');
+    item.classList.add('heart');
+
+    // Emoji random
+    item.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
+    item.style.left = Math.random() * 100 + 'vw';
+    item.style.bottom = '-20px';
+    item.style.animationDelay = Math.random() * 2 + 's';
+    document.body.appendChild(item);
+
+    setTimeout(() => item.remove(), 4000);
+  }
+}
   </script>
 
 </body>
