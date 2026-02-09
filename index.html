@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>San Valentín 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle at top, #ffb6d5, #ff6fae);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px 30px;
+      max-width: 380px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      animation: fadeIn 1s ease;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 1.8rem;
+    }
+
+    h2 {
+      margin: 10px 0 25px;
+      font-weight: 400;
+      font-size: 1.2rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 12px 26px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .yes {
+      background: #ff3f8e;
+      color: white;
+      box-shadow: 0 10px 20px rgba(255, 63, 142, 0.5);
+    }
+
+    .no {
+      background: rgba(255, 255, 255, 0.7);
+      color: #ff3f8e;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+    }
+
+    .final {
+      display: none;
+      animation: fadeIn 1s ease;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 18px;
+      animation: floatUp 4s linear forwards;
+      opacity: 0.8;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card" id="card">
+    <h1>Azul Amador 💖</h1>
+    <h2>¿Quieres ser mi San Valentín? ❤️‍🔥</h2>
+
+    <div class="buttons">
+      <button class="yes" onclick="accept()">Sí 💕</button>
+      <button class="no" onclick="moveNo()">No 💔</button>
+    </div>
+  </div>
+
+  <div class="card final" id="final">
+    <h1>🥰</h1>
+    <h2>
+      Gracias por seguir siendo mi SI favorito ❤️. El primer año Coyoacan , el segundo año el mercado de San Juan , el tercer año  Campo Mar. El cuarto ... <br />
+      <strong>Te amo ratoncita, eres el amor de mi vida 🩷</strong>
+    </h2>
+  </div>
+
+  <script>
+    const noBtn = document.querySelector('.no');
+    const card = document.getElementById('card');
+    const final = document.getElementById('final');
+
+    function moveNo() {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function accept() {
+      card.style.display = 'none';
+      final.style.display = 'block';
+      createHearts();
+    }
+
+    function createHearts() {
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.innerText = '💖';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.bottom = '-20px';
+        heart.style.animationDelay = Math.random() * 2 + 's';
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 4000);
+      }
+    }
+  </script>
+</body>
+</html>
