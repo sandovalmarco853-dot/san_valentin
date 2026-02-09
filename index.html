@@ -5,6 +5,8 @@
   <title>San Valentín 💖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Hecho con amor por Marco para Azul 🩷 -->
+
   <style>
     * {
       box-sizing: border-box;
@@ -26,7 +28,7 @@
       background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(12px);
       border-radius: 20px;
-      padding: 40px 30px;
+      padding: 36px 28px;
       max-width: 380px;
       width: 90%;
       text-align: center;
@@ -69,6 +71,7 @@
     .no {
       background: rgba(255, 255, 255, 0.7);
       color: #ff3f8e;
+      position: relative;
     }
 
     button:hover {
@@ -80,6 +83,33 @@
       animation: fadeIn 1s ease;
     }
 
+    /* 💖 POLAROID */
+    .polaroid {
+      background: #fff;
+      padding: 12px 12px 36px;
+      border-radius: 6px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+      margin-bottom: 22px;
+      transform: rotate(-2deg);
+    }
+
+    .polaroid img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .polaroid span {
+      display: block;
+      margin-top: 10px;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #555;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* 💕 CORAZONES */
     .heart {
       position: absolute;
       font-size: 18px;
@@ -112,21 +142,29 @@
 </head>
 
 <body>
+
+  <!-- PANTALLA INICIAL -->
   <div class="card" id="card">
-    <h1>Azul Amador 💖</h1>
+    <div class="polaroid">
+      <img src="IMG_3702.jpeg" alt="Marco y Azul">
+      <span>Marco & Azul 🩷</span>
+    </div>
+
+    <h1>Piciosa 💖</h1>
     <h2>¿Quieres ser mi San Valentín? ❤️‍🔥</h2>
 
     <div class="buttons">
       <button class="yes" onclick="accept()">Sí 💕</button>
-      <button class="no" onclick="moveNo()">No 💔</button>
+      <button class="no" onclick="moveNo()">No 😅</button>
     </div>
   </div>
 
+  <!-- FINAL -->
   <div class="card final" id="final">
     <h1>🥰</h1>
     <h2>
-      Gracias por seguir siendo mi SI favorito ❤️. El primer año Coyoacan , el segundo año el mercado de San Juan , el tercer año  Campo Mar. El cuarto ... <br />
-      <strong>Te amo ratoncita, eres el amor de mi vida 🩷</strong>
+      Cada día a tu lado me recuerda lo afortunado que soy. Te amo más de lo que estas palabras puedan decir.<br>
+      <strong>Contigo, todo vale la pena 🩷</strong>
     </h2>
   </div>
 
@@ -161,5 +199,6 @@
       }
     }
   </script>
+
 </body>
 </html>
